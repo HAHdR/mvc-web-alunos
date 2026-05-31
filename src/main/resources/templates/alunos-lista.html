@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Alunos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        table { width: 50%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .btn-voltar { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #6c757d; color: white; text-decoration: none; }
+        .btn-voltar:hover { background-color: #5a6268; }
+    </style>
+</head>
+<body>
+
+    <h2>Alunos Cadastrados</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Matrícula</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="aluno : ${alunos}">
+                <td th:text="${aluno.nome}">Nome do Aluno</td>
+                <td th:text="${aluno.matricula}">Matrícula</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/alunos}" class="btn-voltar">Cadastrar Novo Aluno</a>
+
+</body>
+</html>
